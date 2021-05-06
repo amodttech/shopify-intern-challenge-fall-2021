@@ -1,6 +1,10 @@
 import React from 'react'
 
-function Nominations() {
+function Nominations({addNomination}) {
+
+    
+
+
     return (
         <div className="nominations-container component-box">
             <h3>Nominations</h3>

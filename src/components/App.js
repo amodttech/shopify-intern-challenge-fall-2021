@@ -20,6 +20,14 @@ function App() {
     ])
   }
 
+  function addNomination(title, year) {
+    setNominations(previousNominations => [
+      ...previousNominations,
+      {title: title, 
+      year: year}
+    ])
+  }
+
   const flims = [
     {title: "Rambo", year: 1999},
     {title: "Hey Ram", year: 2000},
@@ -35,8 +43,8 @@ function App() {
       <h1>The Shoppies</h1>
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
       <div className="body-container">
-        <Results searchTerm={searchTerm} results={results}/>
-        <Nominations />
+        <Results searchTerm={searchTerm} results={results} addNomination={addNomination}/>
+        <Nominations nominations={nominations}/>
       </div>
     </div>
   );
