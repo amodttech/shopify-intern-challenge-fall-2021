@@ -1,16 +1,10 @@
 import React from 'react'
 import ResultListItem from './ResultListItem'
 
-function Results({searchTerm}) {
+function Results({searchTerm, results}) {
 
-    const flims = [
-        {title: "Rambo", year: 1999},
-        {title: "Hey Ram", year: 2000},
-        {title: "Ram Dass, Going Home", year: 2007},
-    ]
-
-    const listItems = flims.map(item => 
-        <ResultListItem title={item.title} year={item.year} />
+    const listItems = results.map(item => 
+        <ResultListItem key={item.id} title={item.title} year={item.year} />
         )
 
     return (

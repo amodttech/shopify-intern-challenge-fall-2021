@@ -12,13 +12,30 @@ function App() {
   const [results, setResults] = useState([])
   const [nominations, setNominations] = useState([])
 
+  function addResult(title, year) {
+    setResults(previousResults => [
+      ...previousResults,
+      {title: title, 
+      year: year}
+    ])
+  }
+
+  const flims = [
+    {title: "Rambo", year: 1999},
+    {title: "Hey Ram", year: 2000},
+    {title: "Ram Dass, Going Home", year: 2007},
+  ]
+
+  useEffect(()=>{
+    flims.forEach(flim => addResult(flim.title, flim.year))
+  },[])
 
   return (
     <div className="app-container">
       <h1>The Shoppies</h1>
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
       <div className="body-container">
-        <Results searchTerm={searchTerm}/>
+        <Results searchTerm={searchTerm} results={results}/>
         <Nominations />
       </div>
     </div>
