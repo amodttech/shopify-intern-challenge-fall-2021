@@ -12,7 +12,6 @@ function Results({searchTerm, results, addNomination, nominations}) {
             nominations={nominations}
         />
         )
-
     
     return (
         <div className="results-container component-box">

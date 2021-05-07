@@ -7,7 +7,6 @@ function Nominations({nominations, removeNomination}) {
         <NominationListItem key={item.id} title={item.title} year={item.year} removeNomination={removeNomination}/>
         )
 
-
     return (
         <div className="nominations-container component-box">
             <h3>Nominations</h3>

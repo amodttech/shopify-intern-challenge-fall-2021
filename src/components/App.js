@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
+import Banner from './Banner';
 
 import Header from "./Header";
 import Nominations from "./Nominations";
@@ -11,6 +12,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("")
   const [results, setResults] = useState([])
   const [nominations, setNominations] = useState([])
+  const [fiveNoms, setFiveNoms] = useState(false)
 
   function addResult(title, year) {
     setResults(previousResults => [
@@ -26,22 +28,31 @@ function App() {
       {title: title, 
       year: year}
     ])
+    fiveCheck()
   }
 
   function removeNomination(title){
     const remainingNoms = nominations.filter(nom => nom.title !== title);
     setNominations(remainingNoms)
+    fiveCheck()
   }
 
-
+  function fiveCheck(){
+    if (nominations.length > 4){
+      setFiveNoms(true)
+    } else {
+      setFiveNoms(false)
+    }
+    console.log(`nominations.length`, nominations.length)
+    console.log(`fiveNoms`, fiveNoms)
+  }
 
   function omdbSearch(){
     fetch(`http://www.omdbapi.com/?t=${searchTerm}&apikey=2545e0fa`)
     .then(r => r.json())
     .then(r => {
-      console.log(r)
       if (r.Response === "False"){
-        console.log('ignoring single letter')
+        console.log('ignoring first result')
       } else {
         addResult(r.Title, r.Year)
       }
@@ -50,6 +61,7 @@ function App() {
 
   return (
     <div className="app-container">
+      {fiveNoms ? <Banner /> : null}
       <h1>The Shoppies</h1>
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} omdbSearch={omdbSearch}/>
       <div className="body-container">

@@ -5,11 +5,9 @@ function ResultListItem({title, year, addNomination, nominations}) {
     function isNommed(title) {
         const foundNom = nominations.filter(nom => nom.title === title)
         if (foundNom[0]){
-            console.log('found nomination')
           return true
         } else return false
     }
-
 
     return (
         <li className="result-list-item">
