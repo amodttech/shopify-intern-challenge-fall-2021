@@ -43,7 +43,7 @@ function App() {
   }
 
   function omdbSearch(){
-    fetch(`http://www.omdbapi.com/?t=${searchTerm}&apikey=2545e0fa`)
+    fetch(`https://www.omdbapi.com/?t=${searchTerm}&apikey=2545e0fa`)
     .then(r => r.json())
     .then(r => {
       if (r.Response === "False"){
