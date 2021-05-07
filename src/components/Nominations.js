@@ -1,15 +1,18 @@
 import React from 'react'
+import NominationListItem from './NominationListItem'
 
-function Nominations({addNomination}) {
+function Nominations({nominations}) {
 
-    
+    const listItems = nominations.map(item => 
+        <NominationListItem key={item.id} title={item.title} year={item.year}/>
+        )
 
 
     return (
         <div className="nominations-container component-box">
             <h3>Nominations</h3>
             <ul>
-                <li>Rambo (1999)</li>
+                {listItems}
             </ul>
         </div>
     )
