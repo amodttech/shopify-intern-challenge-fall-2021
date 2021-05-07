@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, {useState} from 'react'
 import Banner from './Banner';
 
 import Header from "./Header";
@@ -14,6 +14,10 @@ function App() {
   const [nominations, setNominations] = useState([])
   const [fiveNoms, setFiveNoms] = useState(false)
 
+  console.log(`nominations`, nominations)
+  
+
+
   function addResult(title, year) {
     setResults(previousResults => [
       ...previousResults,
@@ -28,23 +32,23 @@ function App() {
       {title: title, 
       year: year}
     ])
-    fiveCheck()
   }
 
   function removeNomination(title){
     const remainingNoms = nominations.filter(nom => nom.title !== title);
     setNominations(remainingNoms)
-    fiveCheck()
   }
 
   function fiveCheck(){
     if (nominations.length > 4){
-      setFiveNoms(true)
+      // setFiveNoms(true)
+      return true
     } else {
-      setFiveNoms(false)
+      // setFiveNoms(false)
+      return false
     }
-    console.log(`nominations.length`, nominations.length)
-    console.log(`fiveNoms`, fiveNoms)
+    // console.log(`nominations.length`, nominations.length)
+    // console.log(`fiveNoms`, fiveNoms)
   }
 
   function omdbSearch(){
@@ -61,7 +65,7 @@ function App() {
 
   return (
     <div className="app-container">
-      {fiveNoms ? <Banner /> : null}
+      {fiveCheck() ? <Banner /> : null}
       <h1>The Shoppies</h1>
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} omdbSearch={omdbSearch}/>
       <div className="body-container">
