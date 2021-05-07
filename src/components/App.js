@@ -28,6 +28,11 @@ function App() {
     ])
   }
 
+  function removeNomination(title){
+    const remainingNoms = nominations.filter(nom => nom.title !== title);
+    setNominations(remainingNoms)
+  }
+
 
 
   function omdbSearch(){
@@ -49,7 +54,7 @@ function App() {
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} omdbSearch={omdbSearch}/>
       <div className="body-container">
         <Results searchTerm={searchTerm} results={results} addNomination={addNomination} nominations={nominations}/>
-        <Nominations nominations={nominations}/>
+        <Nominations nominations={nominations} removeNomination={removeNomination}/>
       </div>
     </div>
   );

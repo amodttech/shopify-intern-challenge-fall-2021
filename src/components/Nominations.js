@@ -1,10 +1,10 @@
 import React from 'react'
 import NominationListItem from './NominationListItem'
 
-function Nominations({nominations}) {
+function Nominations({nominations, removeNomination}) {
 
     const listItems = nominations.map(item => 
-        <NominationListItem key={item.id} title={item.title} year={item.year}/>
+        <NominationListItem key={item.id} title={item.title} year={item.year} removeNomination={removeNomination}/>
         )
 
 

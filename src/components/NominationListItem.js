@@ -1,10 +1,11 @@
 import React from 'react'
 
-function NominationListItem() {
+function NominationListItem({title, year, removeNomination}) {
     
     return (
         <li className="nomination-list-item">
-            {/* {title} ({year}) */}
+            {title} ({year})
+            <button onClick={() => removeNomination(title)}>Unnominate</button>
         </li>
     )
 }
