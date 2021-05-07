@@ -12,11 +12,6 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("")
   const [results, setResults] = useState([])
   const [nominations, setNominations] = useState([])
-  const [fiveNoms, setFiveNoms] = useState(false)
-
-  console.log(`nominations`, nominations)
-  
-
 
   function addResult(title, year) {
     setResults(previousResults => [
@@ -41,14 +36,10 @@ function App() {
 
   function fiveCheck(){
     if (nominations.length > 4){
-      // setFiveNoms(true)
       return true
     } else {
-      // setFiveNoms(false)
       return false
     }
-    // console.log(`nominations.length`, nominations.length)
-    // console.log(`fiveNoms`, fiveNoms)
   }
 
   function omdbSearch(){
@@ -56,7 +47,6 @@ function App() {
     .then(r => r.json())
     .then(r => {
       if (r.Response === "False"){
-        console.log('ignoring first result')
       } else {
         addResult(r.Title, r.Year)
       }
