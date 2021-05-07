@@ -28,17 +28,6 @@ function App() {
     ])
   }
 
-  // const flims = [
-  //   {title: "Rambo", year: 1999},
-  //   {title: "Hey Ram", year: 2000},
-  //   {title: "Ram Dass, Going Home", year: 2007},
-  // ]
-
-  // console.log(`nominations`, nominations)
-  
-  // useEffect(()=>{
-  //   flims.forEach(flim => addResult(flim.title, flim.year))
-  // },[])
 
 
   function omdbSearch(){
@@ -59,7 +48,7 @@ function App() {
       <h1>The Shoppies</h1>
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} omdbSearch={omdbSearch}/>
       <div className="body-container">
-        <Results searchTerm={searchTerm} results={results} addNomination={addNomination}/>
+        <Results searchTerm={searchTerm} results={results} addNomination={addNomination} nominations={nominations}/>
         <Nominations nominations={nominations}/>
       </div>
     </div>

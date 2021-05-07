@@ -1,10 +1,16 @@
 import React from 'react'
 import ResultListItem from './ResultListItem'
 
-function Results({searchTerm, results, addNomination}) {
+function Results({searchTerm, results, addNomination, nominations}) {
 
     const listItems = results.map(item => 
-        <ResultListItem key={item.id} title={item.title} year={item.year} addNomination={addNomination}/>
+        <ResultListItem 
+            key={item.id} 
+            title={item.title} 
+            year={item.year} 
+            addNomination={addNomination} 
+            nominations={nominations}
+        />
         )
 
     
