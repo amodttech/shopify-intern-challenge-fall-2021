@@ -1,10 +1,15 @@
 import React from 'react'
 
-function Header({searchTerm, setSearchTerm, omdbSearch}) {
+function Header({searchTerm, setSearchTerm, omdbSearch, clearResults}) {
 
     function handleSearch(e){
-        setSearchTerm(e.target.value)
-        omdbSearch()
+        if (e.target.value.length === 0){
+            setSearchTerm("")
+            clearResults()
+        } else {
+            setSearchTerm(e.target.value)
+            omdbSearch()
+        }
     }
     
     return (
