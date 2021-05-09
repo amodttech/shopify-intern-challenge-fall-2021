@@ -1,10 +1,11 @@
 import React from 'react'
 
-function Banner() {
+function Banner({fiveCheck}) {
+
     return (
-        <div>
-            <h1>5NOMS!</h1>
-        </div>
+            <div className="banner-container">
+                {fiveCheck() ? <h4 className="title-fit component-box"> 🤜 FIVE NOMINATIONS 🤛 </h4> : null}
+            </div>
     )
 }
 

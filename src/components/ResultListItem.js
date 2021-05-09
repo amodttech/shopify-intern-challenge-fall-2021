@@ -10,9 +10,9 @@ function ResultListItem({title, year, addNomination, nominations}) {
     }
 
     return (
-        <li className="result-list-item">
+        <li className="result list-item">
             {title} ({year}) 
-            {isNommed(title) ? null :  <button onClick={()=> addNomination(title, year)}>Nominate</button>}
+            {isNommed(title) ? null :  <button onClick={()=> addNomination(title, year)}> 👍 </button>}
         </li>
     )
 }
