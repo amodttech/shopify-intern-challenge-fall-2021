@@ -11,11 +11,12 @@ function App() {
   const [results, setResults] = useState([])
   const [nominations, setNominations] = useState([])
 
-  function addResult(title, year) {
+  function addResult(title, year, imdb) {
     setResults(previousResults => [
       ...previousResults,
       {title: title, 
-      year: year}
+      year: year,
+      url: `https://www.imdb.com/title/${imdb}`}
     ])
   }
 
@@ -23,14 +24,15 @@ function App() {
     setResults([])
   }
 
-  function addNomination(title, year) {
+  function addNomination(title, year, url) {
     setNominations(previousNominations => [
       ...previousNominations,
       {title: title, 
-      year: year}
+      year: year,
+      url: url}
     ])
   }
-
+console.log(`results`, results)
   function removeNomination(title){
     const remainingNoms = nominations.filter(nom => nom.title !== title);
     setNominations(remainingNoms)
@@ -50,7 +52,7 @@ function App() {
     .then(r => {
       if (r.Response === "False"){
       } else {
-        addResult(r.Title, r.Year)
+        addResult(r.Title, r.Year, r.imdbID)
       }
     })
   }

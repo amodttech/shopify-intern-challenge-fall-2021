@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ResultListItem({title, year, addNomination, nominations}) {
+function ResultListItem({title, year, url, addNomination, nominations}) {
 
     function isNommed(title) {
         const foundNom = nominations.filter(nom => nom.title === title)
@@ -11,8 +11,10 @@ function ResultListItem({title, year, addNomination, nominations}) {
 
     return (
         <li className="result list-item">
-            {title} ({year}) 
-            {isNommed(title) ? null :  <button onClick={()=> addNomination(title, year)}> 👍 </button>}
+            <a href={url} target="_blank" rel="noopener noreferrer">
+                {title} ({year})</a>
+                {isNommed(title) ? null :  <button onClick={()=> addNomination(title, year, url)}> 👍 </button>}
+            
         </li>
     )
 }

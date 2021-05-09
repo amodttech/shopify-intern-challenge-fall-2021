@@ -4,7 +4,7 @@ import NominationListItem from './NominationListItem'
 function Nominations({nominations, removeNomination}) {
 
     const listItems = nominations.map(item => 
-        <NominationListItem key={item.id} title={item.title} year={item.year} removeNomination={removeNomination}/>
+        <NominationListItem key={item.id} title={item.title} year={item.year} url={item.url} removeNomination={removeNomination}/>
         )
 
     return (

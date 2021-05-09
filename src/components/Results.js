@@ -8,6 +8,7 @@ function Results({searchTerm, results, addNomination, nominations}) {
             key={item.id} 
             title={item.title} 
             year={item.year} 
+            url={item.url}
             addNomination={addNomination} 
             nominations={nominations}
         />
